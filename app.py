@@ -1,13 +1,9 @@
 from flask import Flask
 import pymongo
-import elasticsearch
-import elasticsearch_dsl
 import mongoengine
 
 app = Flask(__name__)
 print(pymongo.__version__)
-print(elasticsearch.__version__)
-print(elasticsearch_dsl.__version__)
 print(mongoengine.__version__)
 
 
