@@ -7,5 +7,10 @@ db.authenticate(config.MONGO_AUTH_NAME, config.MONGO_AUTH_PASSWORD)
 recruit = db['recruit']
 company = db['company']
 article = db['article']
+comment = db['comment']
+comment_user = db['comment_user']
+likes = db['likes']
 topic = db['topic']
 users = db['users']
+news = db['news_36kr']
+
