@@ -1,16 +1,12 @@
 from flask import Flask
-import pymongo
-import mongoengine
+from api import article, company, recruit, topic, users
 
 app = Flask(__name__)
-print(pymongo.__version__)
-print(mongoengine.__version__)
-
-
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
+app.register_blueprint(article.article_blue_print, url_prefix='/article')
+app.register_blueprint(company.company_blue_print, url_prefix='/company')
+app.register_blueprint(recruit.recruit_blue_print, url_prefix='/recruit')
+app.register_blueprint(topic.topic_blue_print, url_prefix='/topic')
+# app.register_blueprint(users.article_blue_print, url_prefix='/users')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=12345, host='0.0.0.0')
+    app.run(debug=True)
