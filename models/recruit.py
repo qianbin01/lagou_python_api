@@ -1,4 +1,5 @@
 from models import recruit
+from bson.objectid import ObjectId
 
 
 def get_recruits_list(page=1):
@@ -12,3 +13,7 @@ def get_recruits_list(page=1):
     return data_list
 
 
+def get_recruits_single(rid):
+    recruit_item = recruit.find_one({'_id': ObjectId(rid)})
+    recruit_item['_id'] = str(recruit_item['_id'])
+    return recruit_item
