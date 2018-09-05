@@ -9,8 +9,9 @@ status = {
 }
 
 
-@article_blue_print.route('/lists/<page>', methods=['GET', 'POST'])
-def lists(page):
+@article_blue_print.route('/lists', methods=['GET', 'POST'])
+def lists():
+    page = request.args.get('page')
     if request.method == 'GET':
         return jsonify({'status': status, 'dataList': article.get_articles_list('', page)})
     else:
@@ -18,8 +19,9 @@ def lists(page):
         return jsonify({'status': status, 'dataList': article.get_articles_list(data.get('topic_id'), page)})
 
 
-@article_blue_print.route('/single/<aid>')
-def article_singe(aid):
+@article_blue_print.route('/single')
+def article_singe():
+    aid = request.args.get('aid')
     return jsonify({'status': status, 'object': article.get_articles_single(aid)})
 
 
