@@ -8,12 +8,19 @@ status = {
     'code': 1000
 }
 
+article_doc = article.get_articles_count()
+
 
 @article_blue_print.route('/lists', methods=['GET', 'POST'])
 def lists():
     page = request.args.get('page')
     if request.method == 'GET':
-        return jsonify({'status': status, 'dataList': article.get_articles_list('', page)})
+        article_doc['index'] = page
+        return jsonify(
+            {'status': status,
+             'pageInfo': article_doc,
+             'dataList': article.get_articles_list('', page)
+             })
     else:
         data = json.loads(request.get_data())
         return jsonify({'status': status, 'dataList': article.get_articles_list(data.get('topic_id'), page)})
@@ -23,13 +30,3 @@ def lists():
 def article_singe():
     aid = request.args.get('aid')
     return jsonify({'status': status, 'object': article.get_articles_single(aid)})
-
-
-@article_blue_print.route('/comments/<aid>')
-def article_comments(aid):
-    return jsonify({'status': status, 'dataList': article.get_article_comments(aid)})
-
-
-@article_blue_print.route('/comments/user/<cid>')
-def article_comment_user(cid):
-    return jsonify({'status': status, 'object': article.get_article_comment_user(cid)})

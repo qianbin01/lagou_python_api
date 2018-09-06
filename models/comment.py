@@ -1,14 +1,12 @@
-from models import comment_user
+from models import comment
 
 
-def get_comment_user_list(aid):
+def get_comment_list(aid):
     if not aid:
         return []
-    users = comment_user.find({'answerId': aid})
+    comments = comment.find({'article_id': aid})
     data_list = []
-    for item in users:
+    for item in comments:
         item['_id'] = str(item['_id'])
         data_list.append(item)
     return data_list
-
-

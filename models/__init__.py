@@ -11,6 +11,5 @@ comment = db['comment']
 comment_user = db['comment_user']
 likes = db['likes']
 topic = db['topic']
-users = db['users']
 news = db['news_36kr']
 

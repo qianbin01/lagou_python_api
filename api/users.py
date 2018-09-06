@@ -1,9 +1,14 @@
-import models.article as article
-from flask import Blueprint, jsonify
+import models.users as users
+from flask import Blueprint, jsonify, request
 
-article_blue_print = Blueprint('article', __name__)
+comment_user_blue_print = Blueprint('comment_user', __name__)
+status = {
+    'msg': '请求成功',
+    'code': 1000
+}
 
 
-@article_blue_print.route('/get')
-def get():
-    return jsonify(article.article_get())
+@comment_user_blue_print.route('/lists')
+def lists():
+    aid = request.args.get('aid')
+    return jsonify({'status': status, 'dataList': users.get_comment_user_list(aid)})

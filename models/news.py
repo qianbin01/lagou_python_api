@@ -20,3 +20,10 @@ def get_single_news(nid):
         news_item['_id'] = str(news_item['_id'])
         return news_item
     return ''
+
+
+def get_news_count():
+    return {
+        'total': news.count(),
+        'sizeCount': int(news.count() / 10) + 1,
+    }

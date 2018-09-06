@@ -17,3 +17,10 @@ def get_recruits_single(rid):
     recruit_item = recruit.find_one({'_id': ObjectId(rid)})
     recruit_item['_id'] = str(recruit_item['_id'])
     return recruit_item
+
+
+def get_recruit_count():
+    return {
+        'total': recruit.count(),
+        'sizeCount': int(recruit.count() / 10) + 1,
+    }
