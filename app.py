@@ -1,5 +1,5 @@
-from flask import Flask
 from api import article, company, recruit, topic, comment, news, users
+from flask import Flask
 
 app = Flask(__name__)
 app.register_blueprint(article.article_blue_print, url_prefix='/article')
