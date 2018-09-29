@@ -1,6 +1,8 @@
-# Vue版拉勾，客官们来瞧瞧
+# lagou_python_api
 模拟拉勾app系列---python后台api
 
+# 全栈系列Vue版拉勾，客官们来瞧瞧
+模拟拉勾app系列---python后台api
 ### 注意：本项目个人开发练习，不作为任何商业用途
 
 # todolist
